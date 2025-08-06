@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YaRa Consulting LTD | Custom Software Development Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - matching Hitachi style */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e60012;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e60012;
+        }
+
+        /* Hero Section - matching Hitachi layout */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: left;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Industries Section - matching Hitachi style */
+        .industries {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .industry-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .industry-content {
+            padding: 2rem;
+        }
+
+        .industry-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .industry-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .learn-more {
+            color: #e60012;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .learn-more:hover {
+            border-bottom-color: #e60012;
+        }
+
+        /* Stats Section - matching Hitachi numbers layout */
+        .stats-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #e60012;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.5;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Customer Success Stories - matching Hitachi layout */
+        .success-stories {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .stories-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            align-items: center;
+        }
+
+        .story-logo {
+            padding: 2rem;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .story-content {
+            padding: 2rem;
+        }
+
+        .story-category {
+            color: #e60012;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .story-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #e60012;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 2rem;
+            text-align: center;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-card {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">YaRa Consulting LTD</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>We deliver business-first software solutions</h1>
+                    <p>Partnering with leading organisations, we advise and deliver custom software development built around the best sustainable practices and robust methodologies, powered by cutting-edge technologies.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Software Development Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries" id="industries">
+        <div class="container">
+            <h2 class="section-title">Industries</h2>
+            <p class="section-subtitle">With an understanding of your culture and ways of working, we can work in harmony to clearly define and solve business problems in innovative ways, focused on results.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Construction">
+                    <div class="industry-content">
+                        <h3>Construction</h3>
+                        <p>Let our experts simplify your adoption of digital business apps and tools to deliver immediate benefits to your construction organisation.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Financial Services">
+                    <div class="industry-content">
+                        <h3>Financial Services</h3>
+                        <p>Tackle the challenges and increasing complexity of a fast-moving sector with innovative thinking and advanced technology solutions.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" alt="Healthcare">
+                    <div class="industry-content">
+                        <h3>Healthcare</h3>
+                        <p>We're reimagining the delivery of healthcare services to transform patient care and operational efficiency.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" alt="Manufacturing">
+                    <div class="industry-content">
+                        <h3>Manufacturing</h3>
+                        <p>Adopt innovative ways of working, unlock alternative revenue streams and streamline manufacturing processes.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80" alt="Retail">
+                    <div class="industry-content">
+                        <h3>Retail & E-commerce</h3>
+                        <p>Our global retail expertise can support you to increase sales and improve customer service through digital transformation.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Professional Services">
+                    <div class="industry-content">
+                        <h3>Professional Services</h3>
+                        <p>Simplify business processes, promote collaborative working and ensure a complete understanding of your complex projects.</p>
+                        <a href="#" class="learn-more">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <p class="stat-text">of our clients report improved operational efficiency after implementing our custom software solutions.</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">87%</span>
+                    <p class="stat-text">of development teams report faster delivery times with our agile development methodologies and modern tech stack.</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">92%</span>
+                    <p class="stat-text">of executives said that our solutions significantly improved their digital transformation initiatives and ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">Customer Success Stories</h2>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-logo">
+                        <img src="https://via.placeholder.com/150x60/e60012/white?text=WeDesign" alt="WeDesign Systems">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">Manufacturing</div>
+                        <h3 class="story-title">WeDesign Systems</h3>
+                        <p class="story-description">WeDesign Systems is a global leader in industrial automation and has partnered with YaRa Consulting LTD to develop their comprehensive ERP system using modern cloud technologies and microservices architecture.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-logo">
+                        <img src="https://via.placeholder.com/150x60/333333/white?text=RetailMax" alt="RetailMax">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">Retail</div>
+                        <h3 class="story-title">We Desi</h3>
+                        <p class="story-description">We Desi has experienced rapid growth in recent years and recognised the need to upgrade its e-commerce platform. Our team delivered a scalable solution that improved performance by 300% and enhanced customer experience.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-logo">
+                        <img src="https://via.placeholder.com/150x60/0066cc/white?text=HealthFirst" alt="HealthFirst">
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">Healthcare</div>
+                        <h3 class="story-title">Meta Medical</h3>
+                        <p class="story-description">YaRa Consulting LTD has a pivotal role as the strategic development partner for their patient management system, leveraging extensive experience in healthcare IT to expedite value delivery and improve patient outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#">Dynamics 365 Finance & Operations</a>
+                    <a href="#">Dynamics 365 Customer Engagement</a>
+                    <a href="#">Dynamics 365 Supply Chain Management</a>
+                    <a href="#">Dynamics 365 Human Resources</a>
+                    <a href="#">Dynamics 365 Commerce</a>
+                    <a href="#">Dynamics 365 Project Service Automation</a>
+                    <a href="#">Dynamics 365 Talent</a>
+                    <a href="#">Power BI</a>
+                    <a href="#">Power Automate</a>
+                    <a href="#">Power Virtual Agents</a>
+                    <a href="#">Power BI</a>
+                    <a href="#">Power Apps</a>
+                    <a href="#">Custom Software Development</a>
+                    <a href="#">Web Applications</a>
+                    <a href="#">Mobile Apps</a>
+                    <a href="#">DevOps & CI/CD</a>
+                    <a href="#">Cloud Solutions</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Industries</h4>
+                    <a href="#">Construction</a>
+                    <a href="#">Financial Services</a>
+                    <a href="#">Healthcare</a>
+                    <a href="#">Manufacturing</a>
+                    <a href="#">Retail</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Team</a>
+                    <a href="#">Careers</a>
+                    <a href="#">News</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a href="mailto:admin@yaraconsultingltd.onmicrosoft.com">admin@yaraconsultingltd.onmicrosoft.com</a>
+                    <a href="tel:+447713959275">+44 7713 959 275</a>
+                    <a href="#">London, UK</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 YaRa Consulting LTD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
